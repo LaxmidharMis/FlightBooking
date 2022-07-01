@@ -1,0 +1,153 @@
+package com.flightapp.repository;
+
+import java.sql.Date;
+import java.text.ParseException;
+import java.util.List;
+import java.util.Optional;
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+
+import com.flightapp.entity.FlightDetails;
+
+@DataJpaTest
+public class AdminRepoTest {
+	@Autowired 
+	private FlightRepository addFlightRepository;
+	FlightDetails addFlightDetails;
+	@Test
+	@DisplayName("saveFlight")
+	public void saveFlight() throws ParseException {
+		
+		//AddFlightDetails(09890,"India Airway","Mum","Pune",2022-05-30,2022-06-02,"All Days",30,40,555.0,2022-05-30);
+		// given
+		addFlightDetails=new FlightDetails();
+		//addFlightDetails.setFlightNumber(Integer.valueOf(09878));
+		addFlightDetails.setFlightNumber(23456);
+		addFlightDetails.setOperatingAirlines("air india");
+		addFlightDetails.setFromPlace("Pune");
+		addFlightDetails.setToPlace("Eng");
+		addFlightDetails.setStartDate(Date.valueOf("2022-08-08"));
+		addFlightDetails.setEndDate(Date.valueOf("2022-08-08"));
+		addFlightDetails.setScheduleDays("AllDays");
+		addFlightDetails.setBusinessSeats(23);
+		addFlightDetails.setNonBusinessSeats(24);
+		addFlightDetails.setCost(3344.99);
+		addFlightDetails.setDateOfDeparture(Date.valueOf("2022-08-08"));
+		
+		
+		
+		
+		// when
+		FlightDetails saveflight = addFlightRepository.save(addFlightDetails);
+		
+		// then -verifying the output
+		Assertions.assertThat(saveflight).isNotNull();
+		Assertions.assertThat(saveflight.getId()).isGreaterThan(0);
+	}
+	
+	@Test
+	@DisplayName("AllFlights")
+	public void getAllFlight() throws ParseException {
+	 addFlightDetails=new FlightDetails(12,32363, "Indigo", "Blr", "Delhi",Date.valueOf("2022-08-08"),Date.valueOf("2022-08-08"), "1 Days",10,10,5000.0,Date.valueOf("2022-08-08"));
+	
+		FlightDetails addFlightDetails2=new FlightDetails(12,32363, "Indigo", "Blr", "Delhi",Date.valueOf("2022-08-08"),Date.valueOf("2022-08-08"), "1 Days",10,10,5000.0,Date.valueOf("2022-08-08"));
+
+		FlightDetails addFlightDetails3=new FlightDetails(12,32363, "Indigo", "Blr", "Delhi",Date.valueOf("2022-08-08"),Date.valueOf("2022-08-08"), "1 Days",10,10,5000.0,Date.valueOf("2022-08-08"));
+		
+		addFlightRepository.save(addFlightDetails);
+		addFlightRepository.save(addFlightDetails2);
+		addFlightRepository.save(addFlightDetails3);
+		
+		List<FlightDetails> flightList = addFlightRepository.findAll();
+		Assertions.assertThat(flightList).isNotNull();
+		Assertions.assertThat(flightList.size()).isEqualTo(3);
+
+	}
+	
+	@Test
+	@DisplayName("getByFlightNumber")
+	public void getByFlightNumber() throws ParseException {
+		FlightDetails addFlightDetails= new FlightDetails(12,32363, "Indigo", "Blr", "Delhi",Date.valueOf("2022-08-08"),Date.valueOf("2022-08-08"), "1 Days",10,10,5000.0,Date.valueOf("2022-08-08"));
+	
+		FlightDetails addFlightDetails2= new FlightDetails(12,32363, "Indigo", "Blr", "Delhi",Date.valueOf("2022-08-08"),Date.valueOf("2022-08-08"), "1 Days",10,10,5000.0,Date.valueOf("2022-08-08"));
+
+		FlightDetails addFlightDetails3= new FlightDetails(12,32363, "Indigo", "Blr", "Delhi",Date.valueOf("2022-08-08"),Date.valueOf("2022-08-08"), "1 Days",10,10,5000.0,Date.valueOf("2022-08-08"));
+		
+		addFlightRepository.save(addFlightDetails);
+		addFlightRepository.save(addFlightDetails2);
+		addFlightRepository.save(addFlightDetails3);
+		
+		 addFlightRepository.findByFlightNumber(addFlightDetails.getFlightNumber()).get();
+		Assertions.assertThat(addFlightDetails).isNotNull();
+		
+
+	}
+	
+	
+	@Test
+	@DisplayName("getByFlightName")
+	public void getByFlightName() throws ParseException {
+		FlightDetails addFlightDetails= new FlightDetails(12,32363, "Indigo", "Blr", "Delhi",Date.valueOf("2022-08-08"),Date.valueOf("2022-08-08"), "1 Days",10,10,5000.0,Date.valueOf("2022-08-08"));
+	
+		FlightDetails addFlightDetails2= new FlightDetails(12,32363, "Indigo", "Blr", "Delhi",Date.valueOf("2022-08-08"),Date.valueOf("2022-08-08"), "1 Days",10,10,5000.0,Date.valueOf("2022-08-08"));
+
+		FlightDetails addFlightDetails3=new FlightDetails(12,32363, "Indigo", "Blr", "Delhi",Date.valueOf("2022-08-08"),Date.valueOf("2022-08-08"), "1 Days",10,10,5000.0,Date.valueOf("2022-08-08"));
+		
+		addFlightRepository.save(addFlightDetails);
+		addFlightRepository.save(addFlightDetails2);
+		addFlightRepository.save(addFlightDetails3);
+		
+		// addFlightRepository.findByFlightNumber(addFlightDetails.getFlightNumber()).get();
+		 addFlightRepository.findByOperatingAirlines(addFlightDetails.getOperatingAirlines()).get();
+		 
+		Assertions.assertThat(addFlightDetails).isNotNull();
+		
+
+	}
+	
+	
+	@Test
+	@DisplayName("deleteFlightByNumber")
+	public void deleteFlightByNumber() throws ParseException {
+		 addFlightDetails=new FlightDetails(12,32363, "Indigo", "Blr", "Delhi",Date.valueOf("2022-08-08"),Date.valueOf("2022-08-08"), "1 Days",10,10,5000.0,Date.valueOf("2022-08-08"));
+	
+		
+		addFlightRepository.save(addFlightDetails);
+		
+		addFlightRepository.delete(addFlightDetails);
+		
+		 Optional<FlightDetails> existFlightNumber = addFlightRepository.findByFlightNumber(addFlightDetails.getFlightNumber());
+		
+		 
+		Assertions.assertThat(existFlightNumber).isEmpty();
+		
+
+	}
+
+
+	@Test
+	@DisplayName("updateFlightByNumber")
+	public void updateFlightByNumber() throws ParseException {
+		 addFlightDetails=new FlightDetails(12,32363, "Indigo", "Blr", "Delhi",Date.valueOf("2022-08-08"),Date.valueOf("2022-08-08"), "1 Days",10,10,5000.0,Date.valueOf("2022-08-08"));
+	
+		
+		addFlightRepository.save(addFlightDetails);
+		
+		// addFlightRepository.findByFlightNumber(addFlightDetails.getFlightNumber()).get();
+		 FlightDetails existFlightNumber = addFlightRepository.findByFlightNumber(addFlightDetails.getFlightNumber()).get();
+		 existFlightNumber.setOperatingAirlines("Us Airway");
+		 
+		 FlightDetails updateFlight = addFlightRepository.save(existFlightNumber);
+			
+		 
+		Assertions.assertThat(updateFlight.getOperatingAirlines()).isEqualTo("Us Airway");
+		
+
+	}
+
+
+}

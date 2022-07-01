@@ -1,0 +1,20 @@
+package com.flightapp.serviceImpl;
+
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.flightapp.entity.FlightInfo;
+import com.flightapp.service.AirlinesService;
+
+@Service
+public class AirlinesServiceImpl implements AirlinesService {
+
+	@Override
+	public List<FlightInfo> findFlights(String from, String to, Date departureDate) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

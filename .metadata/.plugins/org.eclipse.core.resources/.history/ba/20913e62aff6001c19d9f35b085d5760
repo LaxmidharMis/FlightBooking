@@ -1,0 +1,13 @@
+package com.flightapp.service;
+
+import java.text.ParseException;
+import java.util.Date;
+import java.util.List;
+
+import com.flightapp.entity.FlightDetailsInfo;
+import com.flightapp.entity.FlightInfo;
+
+public interface AirlinesService {
+	public List<FlightDetailsInfo> findFlights(String from, String to, String departureDate) throws ParseException;
+
+}

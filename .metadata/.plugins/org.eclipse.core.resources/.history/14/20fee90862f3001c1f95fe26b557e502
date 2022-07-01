@@ -1,0 +1,22 @@
+package com.flightapp.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.flightapp.entity.AdminEntity;
+import com.flightapp.repository.ResistrationRepository;
+
+
+@Service
+public class RegistrationServiceImpl implements RegistraionService{
+
+	@Autowired
+	private ResistrationRepository registrationRepo;
+	
+	@Override
+	public AdminEntity saveAdmin(AdminEntity admin) {
+		
+		
+	}
+
+}

@@ -1,0 +1,25 @@
+package com.flightapp.serviceImpl;
+
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.flightapp.entity.TicketBooking;
+import com.flightapp.service.TiceketBookingService;
+
+@Service
+public class TicketBookingServiceImpl implements TiceketBookingService{
+
+	@Override
+	public Optional<TicketBooking> bookFlight(Integer flightNumber) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void cancelFlight(Integer id) {
+		
+		
+	}
+
+}

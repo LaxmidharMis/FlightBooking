@@ -1,0 +1,21 @@
+package com.flightapp.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.flightapp.entity.AdminEntity;
+import com.flightapp.service.RegistraionService;
+
+@RestController
+public class RegistrationController {
+
+	@Autowired
+	private RegistraionService registraionService;
+	
+	
+	public void registerAdmin() {
+		AdminEntity admin= registraionService.saveAdmin(admin);
+		return admin.getAdminId();
+	}
+
+}

@@ -1,0 +1,35 @@
+package com.flightapp.validation;
+
+public class PnrNumberNotFound extends RuntimeException {
+
+	private static final long serialVersionUID = 1L;
+	private String message;
+	private Long pnrNumber;
+
+	public PnrNumberNotFound() {
+
+	}
+
+	public PnrNumberNotFound(String message, Long pnrNumber) {
+		super();
+		this.message = message;
+		this.pnrNumber = pnrNumber;
+	}
+
+	public Long getPnrNumber() {
+		return pnrNumber;
+	}
+
+	public void setPnrNumber(Long pnrNumber) {
+		this.pnrNumber = pnrNumber;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+}

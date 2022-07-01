@@ -1,0 +1,8 @@
+package com.flightapp.service;
+
+import com.flightapp.entity.FlightDetails;
+
+public interface AdminFlightService {
+	
+  public Integer saveFlights(FlightDetails flightDetails);
+}

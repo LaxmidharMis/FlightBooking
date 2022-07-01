@@ -1,0 +1,89 @@
+package com.flightapp.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
+public class TicketBooking {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	protected Integer id;
+	private Boolean checkedIn;
+	private int numberOfBags;
+	private Long pnrNumber;
+
+	@OneToOne
+	private Passenger passenger;
+
+	@OneToOne
+	private FlightInfo flightInfo;
+
+	public TicketBooking() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public TicketBooking(Integer id, Boolean checkedIn, int numberOfBags, Long pnrNumber, Passenger passenger,
+			FlightInfo flightInfo) {
+		super();
+		this.id = id;
+		this.checkedIn = checkedIn;
+		this.numberOfBags = numberOfBags;
+		this.pnrNumber = pnrNumber;
+		this.passenger = passenger;
+		this.flightInfo = flightInfo;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Boolean getCheckedIn() {
+		return checkedIn;
+	}
+
+	public void setCheckedIn(Boolean checkedIn) {
+		this.checkedIn = checkedIn;
+	}
+
+	public int getNumberOfBags() {
+		return numberOfBags;
+	}
+
+	public void setNumberOfBags(int numberOfBags) {
+		this.numberOfBags = numberOfBags;
+	}
+
+	public Long getPnrNumber() {
+		return pnrNumber;
+	}
+
+	public void setPnrNumber(Long pnrNumber) {
+		this.pnrNumber = pnrNumber;
+	}
+
+	public Passenger getPassenger() {
+		return passenger;
+	}
+
+	public void setPassenger(Passenger passenger) {
+		this.passenger = passenger;
+	}
+
+	public FlightInfo getFlightInfo() {
+		return flightInfo;
+	}
+
+	public void setFlightInfo(FlightInfo flightInfo) {
+		this.flightInfo = flightInfo;
+	}
+
+}

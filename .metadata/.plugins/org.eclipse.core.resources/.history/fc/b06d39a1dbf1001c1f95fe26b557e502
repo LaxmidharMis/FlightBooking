@@ -1,0 +1,127 @@
+package com.flightapp.entity;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Table;
+
+import com.flightapp.enums.Meals;
+import com.flightapp.enums.SeatType;
+
+@Entity
+@Table(name = "flight_details")
+public class FlightDetails {
+
+	private int flightNumber;
+	private String airLine;
+	private String formPlace;
+	private String toPlace;
+	private Date startDate;
+	private Date endDate;
+	@Enumerated(EnumType.STRING)
+	private SeatType totalNumberOfSeats;
+	private int ticketCost;
+	@Enumerated(EnumType.STRING)
+	private Meals meal;
+
+	public FlightDetails() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public FlightDetails(int flightNumber, String airLine, String formPlace, String toPlace, Date startDate,
+			Date endDate, SeatType totalNumberOfSeats, int ticketCost, Meals meal) {
+		super();
+		this.flightNumber = flightNumber;
+		this.airLine = airLine;
+		this.formPlace = formPlace;
+		this.toPlace = toPlace;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.totalNumberOfSeats = totalNumberOfSeats;
+		this.ticketCost = ticketCost;
+		this.meal = meal;
+	}
+
+	public int getFlightNumber() {
+		return flightNumber;
+	}
+
+	public void setFlightNumber(int flightNumber) {
+		this.flightNumber = flightNumber;
+	}
+
+	public String getAirLine() {
+		return airLine;
+	}
+
+	public void setAirLine(String airLine) {
+		this.airLine = airLine;
+	}
+
+	public String getFormPlace() {
+		return formPlace;
+	}
+
+	public void setFormPlace(String formPlace) {
+		this.formPlace = formPlace;
+	}
+
+	public String getToPlace() {
+		return toPlace;
+	}
+
+	public void setToPlace(String toPlace) {
+		this.toPlace = toPlace;
+	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+
+	public SeatType getTotalNumberOfSeats() {
+		return totalNumberOfSeats;
+	}
+
+	public void setTotalNumberOfSeats(SeatType totalNumberOfSeats) {
+		this.totalNumberOfSeats = totalNumberOfSeats;
+	}
+
+	public int getTicketCost() {
+		return ticketCost;
+	}
+
+	public void setTicketCost(int ticketCost) {
+		this.ticketCost = ticketCost;
+	}
+
+	public Meals getMeal() {
+		return meal;
+	}
+
+	public void setMeal(Meals meal) {
+		this.meal = meal;
+	}
+
+	@Override
+	public String toString() {
+		return "FlightDetails [flightNumber=" + flightNumber + ", airLine=" + airLine + ", formPlace=" + formPlace
+				+ ", toPlace=" + toPlace + ", startDate=" + startDate + ", endDate=" + endDate + ", totalNumberOfSeats="
+				+ totalNumberOfSeats + ", ticketCost=" + ticketCost + ", meal=" + meal + "]";
+	}
+
+}

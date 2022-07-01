@@ -1,0 +1,95 @@
+package com.flightapp.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.flightapp.util.Address;
+
+@Entity
+@Table(name ="passenger")
+public class Passenger extends Address {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Integer passengerId;
+	private String passengerName;
+	private String passengerEmail;
+	private Integer passengerPhone;
+	private Address passengerAddress;
+	
+	public Passenger() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Passenger(Integer passengerId, String passengerName, String passengerEmail, Integer passengerPhone,
+			Address passengerAddress) {
+		super();
+		this.passengerId = passengerId;
+		this.passengerName = passengerName;
+		this.passengerEmail = passengerEmail;
+		this.passengerPhone = passengerPhone;
+		this.passengerAddress = passengerAddress;
+	}
+	
+	public Passenger(Integer passengerId, String passengerName, String passengerEmail, Integer passengerPhone) {
+		super();
+		this.passengerId = passengerId;
+		this.passengerName = passengerName;
+		this.passengerEmail = passengerEmail;
+		this.passengerPhone = passengerPhone;
+	}
+
+	public Integer getPassengerId() {
+		return passengerId;
+	}
+
+	public void setPassengerId(Integer passengerId) {
+		this.passengerId = passengerId;
+	}
+
+	public String getPassengerName() {
+		return passengerName;
+	}
+
+	public void setPassengerName(String passengerName) {
+		this.passengerName = passengerName;
+	}
+
+	public String getPassengerEmail() {
+		return passengerEmail;
+	}
+
+	public void setPassengerEmail(String passengerEmail) {
+		this.passengerEmail = passengerEmail;
+	}
+
+	public Integer getPassengerPhone() {
+		return passengerPhone;
+	}
+
+	public void setPassengerPhone(Integer passengerPhone) {
+		this.passengerPhone = passengerPhone;
+	}
+
+	public Address getPassengerAddress() {
+		return passengerAddress;
+	}
+
+	public void setPassengerAddress(Address passengerAddress) {
+		this.passengerAddress = passengerAddress;
+	}
+
+	@Override
+	public String toString() {
+		return "Passenger [passengerId=" + passengerId + ", passengerName=" + passengerName + ", passengerEmail="
+				+ passengerEmail + ", passengerPhone=" + passengerPhone + ", passengerAddress=" + passengerAddress
+				+ "]";
+	}
+	
+	
+	
+}

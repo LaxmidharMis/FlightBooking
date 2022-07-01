@@ -1,0 +1,10 @@
+package com.flightapp.entity;
+
+public class Airport {
+	
+	private int airportCode;
+	private String airportLocation;
+	private String airportName;
+	
+
+}

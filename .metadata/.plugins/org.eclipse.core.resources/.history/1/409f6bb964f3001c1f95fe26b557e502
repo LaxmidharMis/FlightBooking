@@ -1,0 +1,27 @@
+package com.flightapp.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.flightapp.entity.AdminEntity;
+import com.flightapp.service.RegistraionService;
+
+@RestController
+public class RegistrationController {
+
+	@Autowired
+	private RegistraionService registraionService;
+
+	@GetMapping("/registeration")
+	public AdminEntity registerAdmin(@RequestBody AdminEntity adminEntity) {
+		String tempEmailId = adminEntity.getEmailId();
+		if (tempEmailId != null && !"".equals(tempEmailId)) {
+
+		}
+		AdminEntity admin = registraionService.saveAdmin(adminEntity);
+		return admin;
+	}
+
+}

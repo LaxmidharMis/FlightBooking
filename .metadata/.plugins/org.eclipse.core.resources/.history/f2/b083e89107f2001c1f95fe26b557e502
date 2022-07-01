@@ -1,0 +1,71 @@
+package com.flightapp.service;
+
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.flightapp.entity.FlightDetails;
+import com.flightapp.repository.AirlinesRepository;
+
+@Service
+public class AirlineServiceImpl implements AirlinService {
+	@Autowired
+	AirlinesRepository airlineRepo;
+
+	@Override
+	public Integer saveFlight(FlightDetails addFlight) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<FlightDetails> getAllFlight() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public FlightDetails getFlight(String flightName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public FlightDetails getflightNumber(Integer flightNumber) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Integer updateFlight(FlightDetails addFlight, Integer flightNumber) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void deleteFlightById(Integer flightNumber) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public List<Object> findByfromPlaceAndtoPlace(String fromPlace, String toPlace) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Object> findByFromAndTo(String fromPlace, String toPlace) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<FlightDetails> searchFlight(String origin, String destination, Date start_time) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

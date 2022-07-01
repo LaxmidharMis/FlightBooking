@@ -1,0 +1,10 @@
+package com.flightapp.entity;
+
+import javax.persistence.Entity;
+
+@Entity
+public class FlightInfo {
+	
+	
+
+}

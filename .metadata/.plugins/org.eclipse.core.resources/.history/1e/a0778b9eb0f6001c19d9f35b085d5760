@@ -1,0 +1,10 @@
+package com.flightapp.service;
+
+import java.util.List;
+
+import com.flightapp.entity.FlightDetailsInfo;
+
+public interface AirlinesService {
+	public List<FlightDetailsInfo> findFlights(String from, String to, String departureDate) throws Exception;
+
+}

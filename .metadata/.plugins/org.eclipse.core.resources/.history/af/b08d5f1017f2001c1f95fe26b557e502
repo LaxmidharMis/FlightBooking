@@ -1,0 +1,29 @@
+package com.flightapp.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.flightapp.entity.FlightDetails;
+import com.flightapp.repository.FlightRepository;
+
+@Service
+public class AdminFlightServiceImpl implements AdminFlightService{
+	
+	@Autowired
+	FlightRepository flightRepo;
+
+	@Override
+	public Integer saveFlights(FlightDetails flightDetails) {
+		FlightDetails flighDetails = flightRepo.save(flightDetails);
+		return flighDetails.getFlightNumber();
+	}
+
+	@Override
+	public List<FlightDetails> getAllFlights() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

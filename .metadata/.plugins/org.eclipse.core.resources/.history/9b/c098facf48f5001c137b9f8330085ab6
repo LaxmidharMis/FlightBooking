@@ -1,0 +1,12 @@
+package com.flightapp.service;
+
+import com.flightapp.entity.TicketBooking;
+
+public interface TiceketBookingService {
+//	Optional<TicketBooking> bookFlight(Integer flightNumber);
+
+	public void cancelFlight(Integer id);
+	
+	public Integer bookFlight(TicketBooking ticket);
+
+}

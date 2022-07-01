@@ -1,0 +1,18 @@
+package com.flightapp.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.flightapp.entity.TicketBooking;
+
+@Repository
+public interface TicketBookingInfoRepo extends JpaRepository<TicketBooking, Integer> {
+
+	Optional<TicketBooking> findById(Integer flightNumber);
+
+	Optional<TicketBooking> findByPnrNumber(Long pnrNumber);
+
+
+}

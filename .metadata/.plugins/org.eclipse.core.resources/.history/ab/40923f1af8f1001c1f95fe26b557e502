@@ -1,0 +1,33 @@
+package com.flightapp.service;
+
+import java.util.Date;
+import java.util.List;
+
+import com.flightapp.entity.FlightDetails;
+
+public interface AirlinService {
+	
+	Integer saveFlight(FlightDetails addFlight);
+
+	public List<FlightDetails> getAllFlight();
+
+	FlightDetails getFlight(String flightName);
+
+	FlightDetails getflightNumber(Integer flightNumber);
+	//AddFlightDetails searchFlightFromTo(String fromPlace,String toPlace);
+
+	
+
+	Integer updateFlight(FlightDetails addFlight, Integer flightNumber);
+
+	//void deleteFlightByNumber(Integer flightNumber);  deleteFlightById
+	
+	void deleteFlightById(Integer flightNumber);
+	
+	List<Object> findByfromPlaceAndtoPlace( String fromPlace,String toPlace);
+	
+	List<Object> findByFromAndTo( String fromPlace,String toPlace);
+	
+	List<FlightDetails> searchFlight(String origin, String destination,  Date start_time);
+
+}

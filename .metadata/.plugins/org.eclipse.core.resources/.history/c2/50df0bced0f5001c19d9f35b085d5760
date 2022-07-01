@@ -1,0 +1,45 @@
+package com.flightapp.serviceImpl;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.flightapp.entity.TicketBooking;
+import com.flightapp.repository.TicketBookingInfoRepo;
+import com.flightapp.service.TiceketBookingService;
+
+@Service
+public class TicketBookingServiceImpl implements TiceketBookingService {
+
+	@Autowired
+	private TicketBookingInfoRepo ticketBookingInfoRepo;
+
+//	@Override
+//	public Optional<TicketBooking> bookFlight(Integer flightNumber) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+
+	@Override
+	public void cancelFlight(Integer id) {
+		ticketBookingInfoRepo.deleteById(id);
+
+	}
+
+	@Override
+	public Integer bookFlight(TicketBooking ticket) {
+		TicketBooking bookFlight = ticketBookingInfoRepo.save(ticket);
+		return bookFlight.getId();
+	}
+
+	@Override
+	public Optional<TicketBooking> getBookingByPnrNo(Long pnrNumber) {
+		
+		return ticketBookingInfoRepo.findByPnrNumber(pnrNumber);
+//		Optional<TicketBooking> booking_ticket=ticketBookingInfoRepo.findByPnrNumber(pnrNumber);
+//		        return booking_ticket;   
+	}
+
+
+}

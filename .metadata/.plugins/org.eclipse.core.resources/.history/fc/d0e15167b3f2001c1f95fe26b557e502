@@ -1,0 +1,26 @@
+package com.flightapp.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.flightapp.entity.User;
+import com.flightapp.serviceImpl.UserServiceImpl;
+
+@RestController
+@RequestMapping("/user")
+public class UserController {
+	
+	
+	@Autowired
+	private UserServiceImpl userserviceImpl;
+	
+	@PostMapping("/userRegistration")
+	public Integer createUser(@RequestBody User user) {
+		Integer id = userserviceImpl.saveUser(user);
+		return id;
+	}
+
+}

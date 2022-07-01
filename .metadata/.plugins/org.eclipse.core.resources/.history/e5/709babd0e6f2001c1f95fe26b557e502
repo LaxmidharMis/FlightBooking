@@ -1,0 +1,15 @@
+package com.flightapp.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.flightapp.entity.TicketBooking;
+
+public interface TicketBookingInfoRepo extends JpaRepository<TicketBooking, Integer> {
+
+	Optional<TicketBooking> findById(Integer flightNumber);
+
+	void deleteById(Integer id);
+
+}

@@ -1,0 +1,32 @@
+package com.flightapp.service;
+
+public interface AdminFlightService {
+	
+
+
+	Integer saveFlight(FlightDetails addFlight);
+
+	public List<FlightDetails> getAllFlight();
+
+	FlightDetails getFlight(String flightName);
+
+	FlightDetails getflightNumber(Integer flightNumber);
+	//FlightDetails searchFlightFromTo(String fromPlace,String toPlace);
+
+	
+
+	Integer updateFlight(FlightDetails addFlight, Integer flightNumber);
+
+	//void deleteFlightByNumber(Integer flightNumber);  deleteFlightById
+	
+	void deleteFlightById(Integer flightNumber);
+	
+	List<Object> findByfromPlaceAndtoPlace( String fromPlace,String toPlace);
+	
+	List<Object> findByFromAndTo( String fromPlace,String toPlace);
+	
+	List<FlightDetails> searchFlight(String origin, String destination,  Date start_time);
+
+
+
+}

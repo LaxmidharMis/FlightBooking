@@ -1,0 +1,29 @@
+package com.flightapp.serviceImpl;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.flightapp.entity.User;
+import com.flightapp.service.UserService;
+
+public class UserServiceImpl implements UserService{
+
+	@Override
+	public Integer saveStudent(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<User> getAllUser() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<User> getUser(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

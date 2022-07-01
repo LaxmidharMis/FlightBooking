@@ -1,0 +1,30 @@
+package com.flightapp.entity;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Table;
+
+import com.flightapp.enums.Meals;
+import com.flightapp.enums.SeatType;
+
+@Entity
+@Table(name = "flight_details")
+public class FlightDetails {
+	
+	private int flightNumber;
+	private String airLine;
+	private String formPlace;
+	private String toPlace;
+	private Date startDate;
+	private Date endDate;
+	@Enumerated(EnumType.STRING)
+	private SeatType totalNumberOfSeats;
+	private int ticketCost;
+	endDate
+	private Meals meal;
+	
+
+}

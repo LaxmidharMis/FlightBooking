@@ -1,0 +1,15 @@
+package com.flightapp.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "flight_details")
+public class FlightDetails {
+	
+	private int flightNumber;
+	private String airLine;
+	private Date formPlace;
+	
+
+}

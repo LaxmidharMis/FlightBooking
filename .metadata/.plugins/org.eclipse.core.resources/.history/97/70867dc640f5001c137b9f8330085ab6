@@ -1,0 +1,108 @@
+package com.flightapp.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
+public class TicketBooking {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	protected Integer id;
+
+	private String flightName;
+
+	private Long pnrNumber;
+
+	private String emailId;
+
+	private int numberOfSeats;
+
+	private int gender;
+
+	private int seatNumber;
+
+	public TicketBooking() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public TicketBooking(Integer id, String flightName, Long pnrNumber, String emailId, int numberOfSeats, int gender,
+			int seatNumber) {
+		super();
+		this.id = id;
+		this.flightName = flightName;
+		this.pnrNumber = pnrNumber;
+		this.emailId = emailId;
+		this.numberOfSeats = numberOfSeats;
+		this.gender = gender;
+		this.seatNumber = seatNumber;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getFlightName() {
+		return flightName;
+	}
+
+	public void setFlightName(String flightName) {
+		this.flightName = flightName;
+	}
+
+	public Long getPnrNumber() {
+		return pnrNumber;
+	}
+
+	public void setPnrNumber(Long pnrNumber) {
+		this.pnrNumber = pnrNumber;
+	}
+
+	public String getEmailId() {
+		return emailId;
+	}
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+
+	public int getNumberOfSeats() {
+		return numberOfSeats;
+	}
+
+	public void setNumberOfSeats(int numberOfSeats) {
+		this.numberOfSeats = numberOfSeats;
+	}
+
+	public int getGender() {
+		return gender;
+	}
+
+	public void setGender(int gender) {
+		this.gender = gender;
+	}
+
+	public int getSeatNumber() {
+		return seatNumber;
+	}
+
+	public void setSeatNumber(int seatNumber) {
+		this.seatNumber = seatNumber;
+	}
+
+	@Override
+	public String toString() {
+		return "TicketBooking [id=" + id + ", flightName=" + flightName + ", pnrNumber=" + pnrNumber + ", emailId="
+				+ emailId + ", numberOfSeats=" + numberOfSeats + ", gender=" + gender + ", seatNumber=" + seatNumber
+				+ "]";
+	}
+
+}

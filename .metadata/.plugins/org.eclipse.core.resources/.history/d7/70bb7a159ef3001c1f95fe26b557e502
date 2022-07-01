@@ -1,0 +1,51 @@
+package com.flightapp.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties.Template;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.flightapp.entity.AdminEntity;
+import com.flightapp.service.RegistraionService;
+
+@RestController
+@CrossOrigin("*")
+public class RegistrationController {
+
+	@Autowired
+	private RegistraionService registraionService;
+
+	@PostMapping("/registeration")
+	public AdminEntity registerAdmin(@RequestBody AdminEntity adminEntity) throws Exception {
+		String tempEmailId = adminEntity.getEmailId();
+		if (tempEmailId != null && !"".equals(tempEmailId)) {
+			AdminEntity adminObj = registraionService.findUserByEmailId(tempEmailId);
+
+			if (adminObj != null) {
+				throw new Exception("Admin with " + tempEmailId + " is already exit");
+			}
+
+		}
+		AdminEntity admin = registraionService.saveAdmin(adminEntity);
+		return admin;
+	}
+	
+	@PostMapping("/login")
+	public AdminEntity loginAdmin(@RequestBody AdminEntity adminEntity) throws Exception {
+		String tempEmailId= adminEntity.getEmailId();
+		String tempPassword=adminEntity.getPassword();
+		AdminEntity adminObj=null;
+		if(tempEmailId !=null && tempPassword !=null) {
+			adminObj = registraionService.findUserByEmailIdAndPassword(tempEmailId, tempPassword);
+		}
+		if(adminObj == null) {
+			throw new Exception("Bad crendentials");
+			
+		}
+		return adminObj;
+		
+	}
+
+}

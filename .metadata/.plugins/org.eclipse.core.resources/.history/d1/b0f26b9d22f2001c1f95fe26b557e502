@@ -1,0 +1,19 @@
+package com.flightapp.service;
+
+import java.util.List;
+
+import com.flightapp.entity.FlightDetails;
+
+public interface AdminFlightService {
+
+	public Integer saveFlights(FlightDetails flightDetails);
+
+	public List<FlightDetails> getAllFlights();
+
+//  public FlightDetails getFlight(String flightName);
+	public FlightDetails getflightNumber(Integer flightNumber);
+	
+	void deleteFlightById(Integer flightNumber);
+	
+	Integer updateFlight(FlightDetails addFlight, Integer flightNumber);
+}

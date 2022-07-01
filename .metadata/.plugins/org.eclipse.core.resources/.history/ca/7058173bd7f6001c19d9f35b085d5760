@@ -1,0 +1,24 @@
+package com.flightapp.service;
+
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import com.flightapp.entity.FlightDetails;
+import com.flightapp.repository.FlightRepository;
+
+@ExtendWith(MockitoExtension.class)
+public class AdminFlightService {
+	
+	@Mock
+	private FlightRepository flightRepo;
+	
+	@InjectMocks
+	private AdminFlightServiceImpl serviceImpl;
+	private FlightDetails flightDetails;
+
+	
+	
+	
+}

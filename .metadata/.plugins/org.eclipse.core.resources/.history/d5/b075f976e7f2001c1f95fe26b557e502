@@ -1,0 +1,42 @@
+package com.flightapp.controller;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.flightapp.service.TiceketBookingService;
+
+@RestController
+public class TickectBookingController {
+	
+	@Autowired
+	private TiceketBookingService ticketBookingService;
+	
+	@DeleteMapping("/deleteFlight/{flightNumber}")
+	public ResponseEntity<?> deleteFlight(@PathVariable("flightNumber") Integer flightNumber) {
+
+		ResponseEntity<?> resp = null;
+		try {
+
+			ticketBookingService.cancelFlight(flightNumber);
+			Map<String, Boolean> response = new HashMap<>();
+			response.put("Flight is Deleted with flightNumber" + flightNumber, Boolean.TRUE);
+			resp = ResponseEntity.ok(response);
+
+		} catch (Exception e) {
+
+			resp = new ResponseEntity<String>(" Flight not present with  this flightNumber  " + flightNumber,
+					HttpStatus.NOT_FOUND);
+			e.printStackTrace();
+		}
+		return resp;
+	}
+
+
+}
