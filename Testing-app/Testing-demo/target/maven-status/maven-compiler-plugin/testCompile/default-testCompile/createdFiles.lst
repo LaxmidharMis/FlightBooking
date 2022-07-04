@@ -1,0 +1,4 @@
+com\demo\TestingDemoApplicationTests.class
+com\demo\Calculator.class
+com\demo\repo\PersonRepoTest.class
+com\demo\services\PersonServiceTest.class
